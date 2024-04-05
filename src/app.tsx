@@ -12,7 +12,7 @@ export function App() {
     <Providers>
       <AntdApp>
         <Layout style={{ width: "100vw", minHeight: "100vh" }}>
-          <Content>
+          <Content style={{ zIndex: 1 }}>
             <Router routes={Routes} />
           </Content>
         </Layout>

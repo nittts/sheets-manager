@@ -14,7 +14,7 @@ const fetchLang = async (lang: Languages) => {
     return await LangUtils.getTranslationFile(lang);
   }
 
-  return await LangUtils.getTranslationFile("en");
+  return await LangUtils.getTranslationFile("us");
 };
 
 const LanguageContext = createContext<Record<string, string>>({});

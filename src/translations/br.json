@@ -1,0 +1,16 @@
+{
+  "hello": "Olá",
+  "systemName": "Gerenciador de Fichas Fênix Drake",
+  "menuMessage": "Registre-se ou crie uma conta",
+  "us_lang": "Inglês (Estados Unidos)",
+  "br_lang": "Português (Brasil)",
+  "selectLang": "Selecione a sua lingua",
+  "register": "Registro",
+  "login": "Entrar",
+  "selectAccount": "Selecione uma conta",
+  "createNewAccountTitle": "Adicionar nova conta",
+  "createNewAccountMsg": "Adicione uma nova conta ou entre com acesso único",
+  "registerNewAccountTitle": "Registar nova conta",
+  "registerNewAccountMsg": "Registrar nova conta para ter acesso",
+  "noAccounts": "Sem contas, cadastre uma!"
+}

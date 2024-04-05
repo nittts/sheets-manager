@@ -1,29 +1,37 @@
 import ImagesPanel from "@/components/ui/ImagesPanel";
-import { Button, Card, Flex, Input, Space } from "antd";
+import { Col, Row } from "antd";
+
+import MenuSide from "./subComponents/menuSide";
+import SelectAccountList from "./subComponents/selectAccountList";
 
 const slideImages = Object.keys(
   import.meta.glob("/public/slides/*.jpeg", { eager: true }),
 );
 
+const pageContainerStyles = {
+  height: "100vh",
+  width: "100%",
+  paddingLeft: "1em",
+  paddingRight: "1em",
+};
+
 function Home() {
   return (
-    <Flex>
+    <Row style={pageContainerStyles} align="middle">
       <ImagesPanel
         images={slideImages}
-        width="100vw"
-        height="99vh"
-        style={{ filter: "brightness(0.05)", position: "fixed", zIndex: 0 }}
+        width="100%"
+        height="100%"
+        style={{ filter: "brightness(0.1)", position: "fixed", zIndex: -1 }}
       />
-      <Card
-        bordered={false}
-        style={{
-          width: "45%",
-          height: "100vh",
-        }}
-      >
-        <Space style={{ height: "100" }}></Space>
-      </Card>
-    </Flex>
+
+      <Col xs={24} md={12}>
+        <MenuSide />
+      </Col>
+      <Col xs={24} md={12}>
+        <SelectAccountList list={[]} />
+      </Col>
+    </Row>
   );
 }
 

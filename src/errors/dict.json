@@ -1,10 +1,10 @@
 {
   "R01": {
-    "pt": "Acesso negado, cargo não possui esse privilégio de acesso.",
-    "en": "Access Denied, role does not have such access priviledge."
+    "br": "Acesso negado, cargo não possui esse privilégio de acesso.",
+    "us": "Access Denied, role does not have such access priviledge."
   },
   "P01": {
-    "pt": "Acesso negado, usuário não possui a permissão necessária.",
-    "en": "Access Denied, user does not requested permission."
+    "br": "Acesso negado, usuário não possui a permissão necessária.",
+    "us": "Access Denied, user does not requested permission."
   }
 }

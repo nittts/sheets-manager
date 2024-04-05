@@ -1,6 +1,6 @@
 export type UIModes = "DARK" | "LIGHT" | "COMPACT_LIGHT" | "COMPACT_DARK";
 
-export type Languages = "en" | "pt";
+export type Languages = "us" | "br";
 
 export type Colors =
   | "blue"

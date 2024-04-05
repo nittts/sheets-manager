@@ -1,9 +1,13 @@
 import * as colors from "@ant-design/colors";
 import { useAccent } from "@/stores/preferences";
-import { ReactNode } from "preact/compat";
+import { ReactNode, useEffect, useState } from "preact/compat";
 import { AnimatePresence, motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
-type directions = "BL_TR" | "TL_BR" | "BR_TL";
+type PageTransitionProps = {
+  children: ReactNode;
+  hideTransition?: boolean;
+};
 
 const baseStyle = {
   position: "fixed",
@@ -14,8 +18,7 @@ const baseStyle = {
 };
 
 const baseTransition = {
-  duration: 2,
-  stiffness: 100,
+  duration: 1,
 };
 
 const directionsMap = {
@@ -24,42 +27,64 @@ const directionsMap = {
   BR_TL: { x: "-100%", y: "-100%" },
 };
 
-function OverlaySheets({ direction = "BR_TL" }: { direction?: directions }) {
+function PageTransition({ children, hideTransition }: PageTransitionProps) {
   const accent = useAccent();
+  const location = useLocation();
+
+  const [loaded, setLoaded] = useState(false);
+  const [prevLoc, setPrevLoc] = useState("");
+
+  useEffect(() => {
+    setPrevLoc(location.pathname);
+    setLoaded(false);
+    if (location.pathname === prevLoc) {
+      setPrevLoc("");
+    }
+  }, [location]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaded(true);
+    }, 250);
+  }, [prevLoc]);
+
+  if (hideTransition) return children;
 
   return (
     <AnimatePresence>
-      <motion.div
-        initial={{ rotate: 45 }}
-        animate={directionsMap[direction]}
-        transition={{ delay: 0.07, ...baseTransition }}
-        style={{ ...baseStyle, backgroundColor: "#FFF" }}
-        key="sheet1"
-      />
-      <motion.div
-        initial={{ rotate: 45 }}
-        animate={directionsMap[direction]}
-        transition={{ delay: 0.05, ...baseTransition }}
-        style={{ ...baseStyle, backgroundColor: "#000" }}
-        key="sheet2"
-      />
-      <motion.div
-        initial={{ rotate: 45 }}
-        animate={directionsMap[direction]}
-        transition={baseTransition}
-        style={{ ...baseStyle, backgroundColor: colors[accent].primary }}
-        key="sheet3"
-      />
-    </AnimatePresence>
-  );
-}
+      {!loaded && (
+        <motion.div
+          initial={{ rotate: 45, ...directionsMap["BR_TL"] }}
+          exit={directionsMap["TL_BR"]}
+          animate={{ x: 0, y: 0 }}
+          transition={baseTransition}
+          style={{ ...baseStyle, backgroundColor: "#FFF" }}
+          key="sheet1"
+        />
+      )}
+      {!loaded && (
+        <motion.div
+          initial={{ rotate: 45, ...directionsMap["BR_TL"] }}
+          exit={directionsMap["TL_BR"]}
+          animate={{ x: 0, y: 0 }}
+          transition={{ delay: 0.02, ...baseTransition }}
+          style={{ ...baseStyle, backgroundColor: "#000" }}
+          key="sheet2"
+        />
+      )}
+      {!loaded && (
+        <motion.div
+          initial={{ rotate: 45, ...directionsMap["BR_TL"] }}
+          exit={directionsMap["TL_BR"]}
+          animate={{ x: 0, y: 0 }}
+          transition={{ delay: 0.03, ...baseTransition }}
+          style={{ ...baseStyle, backgroundColor: colors[accent].primary }}
+          key="sheet3"
+        />
+      )}
 
-function PageTransition({ children, hideTransition }: { children: ReactNode, hideTransition?: boolean }) {
-  return (
-    <>
-      {!hideTransition && <OverlaySheets />}
       {children}
-    </>
+    </AnimatePresence>
   );
 }
 export default PageTransition;

@@ -10,7 +10,7 @@ type IPreferencesStore = {
 };
 
 const basePreferences: IPreferences = { 
-  lang: "en", 
+  lang: "us", 
   mode: "DARK",
   accent: "blue"
 }

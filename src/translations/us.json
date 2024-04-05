@@ -1,0 +1,16 @@
+{
+  "hello": "hello",
+  "systemName": "Phoenix Drake Sheet Manager",
+  "menuMessage": "Sign-in or create an account",
+  "us_lang": "English (United States)",
+  "br_lang": "Portuguese (Brazil)",
+  "selectLang": "Select your Language",
+  "register": "Register",
+  "login": "Login",
+  "selectAccount": "Select an Account",
+  "createNewAccountTitle": "Add new Account",
+  "createNewAccountMsg": "Add new account or login for a single access",
+  "registerNewAccountTitle": "Register new Account",
+  "registerNewAccountMsg": "Register new account to have access",
+  "noAccounts": "No accounts, register one!"
+}
