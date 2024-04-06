@@ -3,6 +3,7 @@ import { useAccent } from "@/stores/preferences";
 import { ReactNode, useEffect, useState } from "preact/compat";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import LoadingOverlay from "./LoadingOverlay";
 
 type PageTransitionProps = {
   children: ReactNode;
@@ -15,6 +16,7 @@ const baseStyle = {
   left: "-100%",
   width: "500vw",
   height: "500vh",
+  zIndex: 999,
 };
 
 const baseTransition = {
@@ -48,7 +50,18 @@ function PageTransition({ children, hideTransition }: PageTransitionProps) {
     }, 250);
   }, [prevLoc]);
 
-  if (hideTransition) return children;
+  if (hideTransition) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        key="children"
+      >
+        {children}
+      </motion.div>
+    );
+  }
 
   return (
     <AnimatePresence>
@@ -82,8 +95,15 @@ function PageTransition({ children, hideTransition }: PageTransitionProps) {
           key="sheet3"
         />
       )}
-
-      {children}
+      {!loaded && <LoadingOverlay />}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        key="children"
+      >
+        {children}
+      </motion.div>
     </AnimatePresence>
   );
 }

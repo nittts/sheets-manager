@@ -17,7 +17,11 @@ const fetchLang = async (lang: Languages) => {
   return await LangUtils.getTranslationFile("us");
 };
 
-const LanguageContext = createContext<Record<string, string>>({});
+type languageContext = {
+  [x: string]: any;
+};
+
+const LanguageContext = createContext<languageContext>({});
 
 function LanguageProvider({ children }: { children: ReactNode }) {
   const lang = useLang();

@@ -12,5 +12,13 @@
   "createNewAccountMsg": "Add new account or login for a single access",
   "registerNewAccountTitle": "Register new Account",
   "registerNewAccountMsg": "Register new account to have access",
-  "noAccounts": "No accounts, register one!"
+  "noAccounts": "No accounts, register one!",
+  "passwordCheck": {
+    "heading": "Your password must have",
+    "uppercase": "One uppercase letter.",
+    "lowercase": "One lowercase letter.",
+    "number": "At least one number.",
+    "length": "8 or more letters.",
+    "match": "Passwords match."
+  }
 }

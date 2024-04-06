@@ -12,11 +12,12 @@ type IPreferencesStore = {
 const basePreferences: IPreferences = { 
   lang: "us", 
   mode: "DARK",
-  accent: "blue"
+  accent: "red"
 }
 
 const updateLSValue = (preferences: IPreferences) => {
-  LSUtils.set("@SHEETS_APP::Preferences", preferences);
+  
+  LSUtils.set(`@SHEETS_APP::Preferences`, preferences);
 
   return { preferences };
 };

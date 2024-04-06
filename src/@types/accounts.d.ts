@@ -1,7 +1,7 @@
 import { Permissions } from "@/enums/permissions";
 import { roles } from "@/enums/roles";
 
-export type IUser = {
+export type IAccounts = {
   id: string;
   name: string;
   login: string;

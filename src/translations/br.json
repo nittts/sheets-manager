@@ -12,5 +12,13 @@
   "createNewAccountMsg": "Adicione uma nova conta ou entre com acesso único",
   "registerNewAccountTitle": "Registar nova conta",
   "registerNewAccountMsg": "Registrar nova conta para ter acesso",
-  "noAccounts": "Sem contas, cadastre uma!"
+  "noAccounts": "Sem contas, cadastre uma!",
+  "passwordCheck": {
+    "heading": "Sua senha deve ter.",
+    "uppercase": "Uma Letra maíuscula.",
+    "lowercase": "Uma Letra minúscula.",
+    "number": "Pelo menos um número.",
+    "length": "8 ou mais caracteres.",
+    "match": "Senhas coincidem."
+  }
 }

@@ -2,6 +2,7 @@ import SelectLanguage from "@/components/ui/SelectLanguage";
 import { useLanguage } from "@/providers/provider/LanguageProvider";
 import { useAccent } from "@/stores/preferences";
 import { presetPrimaryColors } from "@ant-design/colors";
+import { UserOutlined } from "@ant-design/icons";
 import {
   Avatar,
   Button,
@@ -12,7 +13,7 @@ import {
   Skeleton,
   Typography,
 } from "antd";
-import { User } from "lucide-react";
+
 import { useNavigate } from "react-router-dom";
 
 type AccountItem = {
@@ -59,35 +60,31 @@ function SelectAccountList({ list = [] }: { list?: AccountItem[] }) {
           {language.register}
         </Button>,
       ],
-      avatarSrc: <User />,
+      avatarSrc: <UserOutlined />,
       title: language.registerNewAccountTitle,
       description: language.registerNewAccountMsg,
     },
     {
       actions: [
-        <Button type="primary" onClick={() => navigate("/register")}>
+        <Button type="primary" onClick={() => navigate("/login")}>
           {language.login}
         </Button>,
       ],
-      avatarSrc: <User />,
+      avatarSrc: <UserOutlined />,
       title: language.createNewAccountTitle,
       description: language.createNewAccountMsg,
     },
   ];
 
   return (
-    <Card bordered={false} style={{ width: "100%", height: "100%" }}>
-      <Flex justify="end">
-        <SelectLanguage />
-      </Flex>
-
+    <>
       <Flex vertical style={{ maxHeight: "80vh" }}>
         <Title level={3}>{language.selectAccount}</Title>
 
         <Card
           bordered={false}
           size="small"
-          style={{ overflow: "auto", maxHeight: "50%" }}
+          style={{ overflow: "auto", height: "70vh" }}
         >
           <List
             dataSource={list}
@@ -109,7 +106,7 @@ function SelectAccountList({ list = [] }: { list?: AccountItem[] }) {
           />
         </Card>
       </Flex>
-    </Card>
+    </>
   );
 }
 
