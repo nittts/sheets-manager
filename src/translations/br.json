@@ -5,7 +5,8 @@
   "us_lang": "Inglês (Estados Unidos)",
   "br_lang": "Português (Brasil)",
   "selectLang": "Selecione a sua lingua",
-  "register": "Registro",
+  "register": "Registrar",
+  "goBack": "Voltar",
   "login": "Entrar",
   "selectAccount": "Selecione uma conta",
   "createNewAccountTitle": "Adicionar nova conta",
@@ -20,5 +21,18 @@
     "number": "Pelo menos um número.",
     "length": "8 ou mais caracteres.",
     "match": "Senhas coincidem."
-  }
+  },
+  "errors": {
+    "required": "Campo é obrigatório.",
+    "wrong": "Campo não coincide, verifique novamente por favor."
+  },
+  "rememberMe": "Lembre-me",
+  "forgotPassword": "Esqueceu a senha?",
+  "account": "Conta",
+  "password": "Senha",
+  "confirmPassword": "Confirmar senha",
+  "nickname": "Apelido",
+  "or": "ou",
+  "aNewHand": "Uma nova mão toca o beacon...",
+  "welcomeBackAdventurer": "Bem-vindo de volta, aventureiro!"
 }

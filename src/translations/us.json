@@ -7,6 +7,7 @@
   "selectLang": "Select your Language",
   "register": "Register",
   "login": "Login",
+  "goBack": "Go Back",
   "selectAccount": "Select an Account",
   "createNewAccountTitle": "Add new Account",
   "createNewAccountMsg": "Add new account or login for a single access",
@@ -20,5 +21,18 @@
     "number": "At least one number.",
     "length": "8 or more letters.",
     "match": "Passwords match."
-  }
+  },
+  "errors": {
+    "required": "Field is required.",
+    "wrong": "Fields does not match, please try again."
+  },
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot Password?",
+  "account": "Account",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "nickname": "Nickname",
+  "or": "or",
+  "aNewHand": "A new hand touches the beacon...",
+  "welcomeBackAdventurer": "Welcome back, adventurer!"
 }

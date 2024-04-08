@@ -16,6 +16,8 @@ export class ValidationUtils {
   }
 
   public static strMatch(firstStr: string, secondStr: string) {
+    if(!firstStr || !secondStr) return false
+
     return firstStr === secondStr;
   }
 }

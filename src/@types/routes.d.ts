@@ -11,4 +11,5 @@ export type IRoute = {
   permissionLevel?: Permissions;
   minimumRole?: roles;
   hideTransition?: boolean;
+  children?: IRoute[];
 };

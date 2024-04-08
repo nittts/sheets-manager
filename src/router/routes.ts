@@ -28,16 +28,18 @@ export const Routes: IRoute[] = [
     header: "auth",
     path: "/auth",
     element: Auth,
-  },
-  {
-    header: "login",
-    path: "/login",
-    element: Login,
-  },
-  {
-    header: "register",
-    path: "/register",
-    element: Register,
+    children: [
+      {
+        header: "login",
+        path: "/login",
+        element: Login,
+      },
+      {
+        header: "register",
+        path: "/register",
+        element: Register,
+      },
+    ],
   },
   {
     header: "session",

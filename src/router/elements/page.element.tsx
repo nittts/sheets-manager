@@ -6,7 +6,7 @@ import { DocumentUtils } from "@/utils/document";
 import ProtectedElement from "./protected.element";
 import PageTransition from "@/components/ui/PageTransition";
 
-export default function PageRoute({ route }: { route: IRoute }) {
+export default function PageElement({ route }: { route: IRoute }) {
   const { header, hideTransition } = route;
 
   useEffect(() => {

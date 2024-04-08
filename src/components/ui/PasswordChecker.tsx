@@ -7,12 +7,12 @@ import {
   MinusCircleOutlined,
 } from "@ant-design/icons";
 
-import { List, Typography } from "antd";
+import { Card, List, Typography } from "antd";
 import { useEffect, useState } from "preact/hooks";
 
 type ValidationProps = {
   password: string;
-  confirm_password: string;
+  confirmPassword: string;
 };
 
 type IconMapKeys = "valid" | "error" | "notTouched";
@@ -36,7 +36,7 @@ const colors = {
 };
 
 const validatePassword = (passwords: ValidationProps) => {
-  const { password, confirm_password } = passwords;
+  const { password, confirmPassword } = passwords;
   const { checkLength, hasLowerCase, hasNumber, hasUppercase, strMatch } =
     ValidationUtils;
 
@@ -45,12 +45,12 @@ const validatePassword = (passwords: ValidationProps) => {
     lowercase: hasLowerCase(password) ? "valid" : "error",
     number: hasNumber(password) ? "valid" : "error",
     length: checkLength(password, 8) ? "valid" : "error",
-    match: strMatch(password, confirm_password) ? "valid" : "error",
+    match: strMatch(password, confirmPassword) ? "valid" : "error",
   } as const;
 };
 
 function PasswordChecker(props: ValidationProps) {
-  const { password = "", confirm_password = "" } = props;
+  const { password = "", confirmPassword = "" } = props;
 
   const language = useLanguage();
   const { passwordCheck } = language;
@@ -64,52 +64,24 @@ function PasswordChecker(props: ValidationProps) {
   });
 
   useEffect(() => {
-    const validation = validatePassword({ password, confirm_password });
-
-    setErrors(validation);
-  }, [password, confirm_password]);
+    setErrors(validatePassword({ password, confirmPassword }));
+  }, [confirmPassword, password]);
 
   return (
-    <>
+    <Card>
       <Text>{passwordCheck.heading}:</Text>
       <List>
-        <Item>
-          <Meta
-            avatar={iconMap[errors.uppercase]}
-            title={passwordCheck.uppercase}
-            style={{ color: colors[errors.uppercase] }}
-          />
-        </Item>
-        <Item>
-          <Meta
-            avatar={iconMap[errors.lowercase]}
-            title={passwordCheck.lowercase}
-            style={{ color: colors[errors.lowercase] }}
-          />
-        </Item>
-        <Item>
-          <Meta
-            avatar={iconMap[errors.number]}
-            title={passwordCheck.number}
-            style={{ color: colors[errors.number] }}
-          />
-        </Item>
-        <Item>
-          <Meta
-            avatar={iconMap[errors.length]}
-            title={passwordCheck.length}
-            style={{ color: colors[errors.length] }}
-          />
-        </Item>
-        <Item>
-          <Meta
-            avatar={iconMap[errors.match]}
-            title={passwordCheck.match}
-            style={{ color: colors[errors.match] }}
-          />
-        </Item>
+        {Object.entries(errors).map(([key, value]: [string, IconMapKeys]) => (
+          <Item>
+            <Meta
+              avatar={iconMap[value]}
+              title={passwordCheck[key]}
+              style={{ color: colors[value] }}
+            />
+          </Item>
+        ))}
       </List>
-    </>
+    </Card>
   );
 }
 

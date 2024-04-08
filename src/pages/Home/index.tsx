@@ -10,17 +10,11 @@ const slideImages = Object.keys(
   import.meta.glob("/public/slides/*.jpeg", { eager: true }),
 );
 
-const pageContainerStyles = {
-  height: "100vh",
-  width: "100%",
-  paddingLeft: "1em",
-};
-
 function Home() {
   const language = useLanguage();
 
   return (
-    <Row style={pageContainerStyles} align="middle" justify="end">
+    <Row align="middle" justify="end">
       <ImagesPanel
         images={slideImages}
         width="100%"

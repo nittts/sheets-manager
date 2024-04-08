@@ -56,7 +56,7 @@ function SelectAccountList({ list = [] }: { list?: AccountItem[] }) {
   const userActions: AccountItem[] = [
     {
       actions: [
-        <Button type="primary" onClick={() => navigate("/register")}>
+        <Button type="primary" onClick={() => navigate("/auth/register")}>
           {language.register}
         </Button>,
       ],
@@ -66,7 +66,7 @@ function SelectAccountList({ list = [] }: { list?: AccountItem[] }) {
     },
     {
       actions: [
-        <Button type="primary" onClick={() => navigate("/login")}>
+        <Button type="primary" onClick={() => navigate("/auth/login")}>
           {language.login}
         </Button>,
       ],

@@ -1,5 +1,5 @@
 import { Flex, Image, Typography } from "antd";
-import LoginIcon from "/assets/login_icon.png";
+import LoginIcon from "@/assets/login_icon.png";
 
 const { Title } = Typography;
 
