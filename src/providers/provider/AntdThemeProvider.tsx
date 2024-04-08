@@ -19,6 +19,7 @@ function AntdThemeProvider({ children }: { children: ReactNode }) {
   const token = {
     colorPrimary: presetPrimaryColors[accent],
     colorText: mode.includes("DARK") ? "#FFF" : "#000",
+    colorLink: presetPrimaryColors[accent],
   };
 
   return (

@@ -5,9 +5,24 @@ import GoBackButton from "@/components/ui/GoBackButton";
 import MenuHeader from "@/components/ui/menuHeader";
 
 import { useLanguage } from "@/providers/provider/LanguageProvider";
+import { RegisterPayload } from "@/@types/auth";
+import { registerSvc } from "@/services/auth";
+import { FeedbackUtils } from "@/utils/feedback";
+
+const registerMgs = {
+  error: "Failed to register",
+  success: "Success on register",
+  loading: "register...",
+};
 
 function Register() {
   const language = useLanguage();
+
+  const onFinish = (payload: RegisterPayload) => {
+    const registerPromise = registerSvc(payload);
+
+    FeedbackUtils.promiseToast(registerPromise, registerMgs);
+  };
 
   return (
     <Row>
@@ -18,7 +33,7 @@ function Register() {
           title={<MenuHeader title={language.registerNewAccountTitle} />}
           extra={<GoBackButton />}
         >
-          <RegisterForm />
+          <RegisterForm onFinish={onFinish} />
         </Card>
       </Col>
     </Row>

@@ -6,22 +6,25 @@ import {
   CloseCircleOutlined,
   MinusCircleOutlined,
 } from "@ant-design/icons";
-
 import { Card, List, Typography } from "antd";
 import { useEffect, useState } from "preact/hooks";
-
-type ValidationProps = {
-  password: string;
-  confirmPassword: string;
-};
-
-type IconMapKeys = "valid" | "error" | "notTouched";
 
 const { Text } = Typography;
 const {
   Item: { Meta },
   Item,
 } = List;
+
+type ValidationProps = {
+  password: string;
+  confirmPassword: string;
+};
+
+type PasswordCheckerProps = ValidationProps & {
+  isValid: (valid: boolean) => void;
+};
+
+type IconMapKeys = "valid" | "error" | "notTouched";
 
 const iconMap = {
   valid: <CheckCircleOutlined />,
@@ -35,22 +38,8 @@ const colors = {
   notTouched: presetPrimaryColors.grey,
 };
 
-const validatePassword = (passwords: ValidationProps) => {
-  const { password, confirmPassword } = passwords;
-  const { checkLength, hasLowerCase, hasNumber, hasUppercase, strMatch } =
-    ValidationUtils;
-
-  return {
-    uppercase: hasUppercase(password) ? "valid" : "error",
-    lowercase: hasLowerCase(password) ? "valid" : "error",
-    number: hasNumber(password) ? "valid" : "error",
-    length: checkLength(password, 8) ? "valid" : "error",
-    match: strMatch(password, confirmPassword) ? "valid" : "error",
-  } as const;
-};
-
-function PasswordChecker(props: ValidationProps) {
-  const { password = "", confirmPassword = "" } = props;
+function PasswordChecker(props: PasswordCheckerProps) {
+  const { password = "", confirmPassword = "", isValid } = props;
 
   const language = useLanguage();
   const { passwordCheck } = language;
@@ -64,7 +53,14 @@ function PasswordChecker(props: ValidationProps) {
   });
 
   useEffect(() => {
-    setErrors(validatePassword({ password, confirmPassword }));
+    const validate = validatePassword({ password, confirmPassword });
+    const valid = Object.values(validate).every((value) => value === "valid");
+
+    if (isValid) {
+      isValid(valid);
+    }
+
+    setErrors(validate);
   }, [confirmPassword, password]);
 
   return (
@@ -83,6 +79,20 @@ function PasswordChecker(props: ValidationProps) {
       </List>
     </Card>
   );
+}
+
+function validatePassword(passwords: ValidationProps) {
+  const { password, confirmPassword } = passwords;
+  const { checkLength, hasLowerCase, hasNumber, hasUppercase, strMatch } =
+    ValidationUtils;
+
+  return {
+    uppercase: hasUppercase(password) ? "valid" : "error",
+    lowercase: hasLowerCase(password) ? "valid" : "error",
+    number: hasNumber(password) ? "valid" : "error",
+    length: checkLength(password, 8) ? "valid" : "error",
+    match: strMatch(password, confirmPassword) ? "valid" : "error",
+  } as const;
 }
 
 export default PasswordChecker;
