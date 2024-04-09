@@ -6,20 +6,16 @@ import { useLanguage } from "@/providers/provider/LanguageProvider";
 import { loginSvc } from "@/services/auth";
 import { FeedbackUtils } from "@/utils/feedback";
 import { Card, Col, Flex, Row } from "antd";
-
-const loginMsgs = {
-  error: "Failed to login",
-  success: "Success on login",
-  loading: "login...",
-};
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
   const language = useLanguage();
 
   const onFinish = async (payload: LoginPayload) => {
-    const loginPromise = loginSvc(payload);
+    const loginPromise = loginSvc(payload).then(() => navigate("/sheets"));
 
-    FeedbackUtils.promiseToast(loginPromise, loginMsgs);
+    FeedbackUtils.promiseToast(loginPromise, language.loginMsgs);
   };
 
   return (

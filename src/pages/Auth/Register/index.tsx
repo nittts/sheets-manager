@@ -8,20 +8,16 @@ import { useLanguage } from "@/providers/provider/LanguageProvider";
 import { RegisterPayload } from "@/@types/auth";
 import { registerSvc } from "@/services/auth";
 import { FeedbackUtils } from "@/utils/feedback";
-
-const registerMgs = {
-  error: "Failed to register",
-  success: "Success on register",
-  loading: "register...",
-};
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const language = useLanguage();
+  const navigate = useNavigate();
 
   const onFinish = (payload: RegisterPayload) => {
-    const registerPromise = registerSvc(payload);
+    const registerPromise = registerSvc(payload).then(() => navigate("/login"));
 
-    FeedbackUtils.promiseToast(registerPromise, registerMgs);
+    FeedbackUtils.promiseToast(registerPromise, language.registerMsgs);
   };
 
   return (

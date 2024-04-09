@@ -34,5 +34,15 @@
   "nickname": "Nickname",
   "or": "or",
   "aNewHand": "A new hand touches the beacon...",
-  "welcomeBackAdventurer": "Welcome back, adventurer!"
+  "welcomeBackAdventurer": "Welcome back, adventurer!",
+  "registerMsgs": {
+    "error": "Failed during resgister, try again",
+    "success": "Registered with success!",
+    "loading": "Performing Register..."
+  },
+  "loginMsgs": {
+    "error": "Failed to autenticate, try again",
+    "success": "Authenticated with success!",
+    "loading": "Authenticating..."
+  }
 }

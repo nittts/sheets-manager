@@ -16,7 +16,6 @@ const basePreferences: IPreferences = {
 }
 
 const updateLSValue = (preferences: IPreferences) => {
-  
   LSUtils.set(`@SHEETS_APP::Preferences`, preferences);
 
   return { preferences };

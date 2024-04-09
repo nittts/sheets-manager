@@ -13,9 +13,11 @@ const useAccountStore = create<IAccountsStore>((set) => ({
   clearAccount: () => set(() => ({ account: {} as IAccounts })),
 }));
 
+// Variables
 const useAccount = () => useAccountStore(({ account }) => account);
+
+// Methods
 const useSetAccount = () => useAccountStore(({ setAccount }) => setAccount);
-const useClearAccount = () =>
-  useAccountStore(({ clearAccount }) => clearAccount);
+const useClearAccount = () => useAccountStore(({ clearAccount }) => clearAccount);
 
 export { useAccountStore, useAccount, useSetAccount, useClearAccount };

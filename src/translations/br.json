@@ -34,5 +34,15 @@
   "nickname": "Apelido",
   "or": "ou",
   "aNewHand": "Uma nova mão toca o beacon...",
-  "welcomeBackAdventurer": "Bem-vindo de volta, aventureiro!"
+  "welcomeBackAdventurer": "Bem-vindo de volta, aventureiro!",
+  "registerMsgs": {
+    "error": "Falha ao registrar, tente novamente",
+    "success": "Registrado com Sucesso!",
+    "loading": "Realizando registro..."
+  },
+  "loginMsgs": {
+    "error": "Falha ao autenticar, tente novamente",
+    "success": "Autenticado com Sucesso!",
+    "loading": "Autenticando..."
+  }
 }
