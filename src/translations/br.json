@@ -44,5 +44,17 @@
     "error": "Falha ao autenticar, tente novamente",
     "success": "Autenticado com Sucesso!",
     "loading": "Autenticando..."
+  },
+  "unauthorized": {
+    "title": "Ops! você não é permitido chegar aqui, sabia?",
+    "subTitle": "A aventura lhe espera mas essas terras estão fora do seu escopo, por agora..."
+  },
+  "forbidden": {
+    "title": "Ops! você não tem permissão para chegar aqui, sabia?",
+    "subTitle": "Curioso você, não?..."
+  },
+  "notFound": {
+    "title": "Ops! Região não encontrada, visitando terras fora desse reino aventureiro?",
+    "subTitle": "Procurando por onde, Menzoberranzan?..."
   }
 }

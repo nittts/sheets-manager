@@ -44,5 +44,17 @@
     "error": "Failed to autenticate, try again",
     "success": "Authenticated with success!",
     "loading": "Authenticating..."
+  },
+  "unauthorized": {
+    "title": "Ops! you're not allowed to be here, know that?",
+    "subTitle": "Adventure awaits for you but these lands are out of thy bounds, for now..."
+  },
+  "forbidden": {
+    "title": "Ops! you don't have permission to be here, know that?",
+    "subTitle": "Curious one, aren't you?..."
+  },
+  "notFound": {
+    "title": "Ops! Region not found, visiting lands outside of our reign?",
+    "subTitle": "Where you looking for, Menzoberranzan?..."
   }
 }
