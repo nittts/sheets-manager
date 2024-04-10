@@ -21,4 +21,5 @@ export type IPreferences = {
   lang: Languages;
   mode: UIModes;
   accent: Colors;
+  disablePageTransition: boolean;
 };

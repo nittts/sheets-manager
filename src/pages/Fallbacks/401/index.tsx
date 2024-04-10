@@ -1,5 +1,5 @@
 import { useLanguage } from "@/providers/provider/LanguageProvider";
-import { Button, Result } from "antd";
+import { Button, Flex, Result } from "antd";
 import { useNavigate } from "react-router-dom";
 
 function Unauthorized() {
@@ -13,12 +13,14 @@ function Unauthorized() {
 
   if (unauthorized) {
     return (
-      <Result
-        status="warning"
-        title={unauthorized.title}
-        subTitle={unauthorized.subTitle}
-        extra={extra}
-      />
+      <Flex align="center" justify="center" style={{ height: "100vh" }}>
+        <Result
+          status="warning"
+          title={unauthorized.title}
+          subTitle={unauthorized.subTitle}
+          extra={extra}
+        />
+      </Flex>
     );
   }
 }

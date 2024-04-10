@@ -1,5 +1,5 @@
 function Sheets() {
-  return <div>Sheets</div>;
+  return <div>sheets</div>;
 }
 
 export default Sheets;

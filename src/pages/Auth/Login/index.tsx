@@ -13,7 +13,7 @@ function Login() {
   const language = useLanguage();
 
   const onFinish = async (payload: LoginPayload) => {
-    const loginPromise = loginSvc(payload).then(() => navigate("/sheets"));
+    const loginPromise = loginSvc(payload).then(() => navigate("/dashboard/sheets"));
 
     FeedbackUtils.promiseToast(loginPromise, language.loginMsgs);
   };

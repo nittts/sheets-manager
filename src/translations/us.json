@@ -8,11 +8,14 @@
   "register": "Register",
   "login": "Login",
   "goBack": "Go Back",
+  "offline": "Offline",
   "selectAccount": "Select an Account",
   "createNewAccountTitle": "Add new Account",
   "createNewAccountMsg": "Add new account or login for a single access",
   "registerNewAccountTitle": "Register new Account",
   "registerNewAccountMsg": "Register new account to have access",
+  "oneTimePassTitle": "Authenticate Offline",
+  "oneTimePassMsg": "Authenticate offline and modify/create sheets without the possibility of joining sessions",
   "noAccounts": "No accounts, register one!",
   "passwordCheck": {
     "heading": "Your password must have",
@@ -56,5 +59,18 @@
   "notFound": {
     "title": "Ops! Region not found, visiting lands outside of our reign?",
     "subTitle": "Where you looking for, Menzoberranzan?..."
-  }
+  },
+  "sheets": "Sheets",
+  "sessions": "Sessions",
+  "manage": "Manage",
+  "list": "List",
+  "create": "Create",
+  "edit": "Edit",
+  "del": "Remove",
+  "joinSession": "Join Session",
+  "createSession": "Create Sessions",
+  "listSession": "List sessions",
+  "settings": "Preferences",
+  "leave": "Leave",
+  "madeWithLoveBy": "Made with love by"
 }

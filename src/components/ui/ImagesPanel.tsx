@@ -2,12 +2,12 @@ import { Flex } from "antd";
 
 type IImagesPanel = {
   images: string[];
-  width: string | number;
-  height: string | number;
-  style: React.CSSProperties;
+  width?: string | number;
+  height?: string | number;
+  style?: React.CSSProperties;
 };
 
-function ImagesPanel({ images, height, width, style, ...props }: IImagesPanel) {
+function ImagesPanel({ images, height = '100%', width = '100%', style, ...props }: IImagesPanel) {
   return (
     <Flex
       style={{

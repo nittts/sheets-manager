@@ -1,8 +1,8 @@
 import { useLanguage } from "@/providers/provider/LanguageProvider";
-import { Button, Result } from "antd";
+import { Button, Flex, Result } from "antd";
 import { useNavigate } from "react-router-dom";
 
-import notAllowedMage from "@/assets/notAllowedMage.jpeg"
+import notAllowedMage from "@/assets/notAllowedMage.jpeg";
 
 function Forbidden() {
   const { forbidden, goBack, login } = useLanguage();
@@ -17,17 +17,19 @@ function Forbidden() {
 
   if (forbidden) {
     return (
-      <Result
-        icon={
-          <img
-            style={{ width: "400px", borderRadius: "999px" }}
-            src={notAllowedMage}
-          />
-        }
-        title={forbidden.title}
-        subTitle={forbidden.subTitle}
-        extra={extra}
-      />
+      <Flex align="center" justify="center" style={{ height: "100vh" }}>
+        <Result
+          icon={
+            <img
+              style={{ width: "400px", borderRadius: "999px" }}
+              src={notAllowedMage}
+            />
+          }
+          title={forbidden.title}
+          subTitle={forbidden.subTitle}
+          extra={extra}
+        />
+      </Flex>
     );
   }
 }

@@ -2,11 +2,17 @@ import { IRoute } from "@/@types/routes";
 import { lazy } from "preact/compat";
 
 const Home = lazy(() => import("@/pages/Home"));
-const Sheets = lazy(() => import("@/pages/Sheets"));
-const Session = lazy(() => import("@/pages/Session"));
+
 const Auth = lazy(() => import("@/pages/Auth"));
 const Login = lazy(() => import("@/pages/Auth/Login"));
 const Register = lazy(() => import("@/pages/Auth/Register"));
+
+const Dashboard = lazy(() => import("@/pages/Dashboard"));
+const Session = lazy(() => import("@/pages/Session"));
+const Sheets = lazy(() => import("@/pages/Sheets"));
+const Editor = lazy(() => import("@/pages/Editor"));
+
+const Settings = lazy(() => import("@/pages/Settings"))
 
 const Unauthorized = lazy(() => import("@/pages/Fallbacks/401"));
 const Forbidden = lazy(() => import("@/pages/Fallbacks/403"));
@@ -18,11 +24,6 @@ export const Routes: IRoute[] = [
     path: "/",
     element: Home,
     hideTransition: true,
-  },
-  {
-    header: "sheets",
-    path: "/sheets",
-    element: Sheets,
   },
   {
     header: "auth",
@@ -42,9 +43,32 @@ export const Routes: IRoute[] = [
     ],
   },
   {
-    header: "session",
-    path: "/session",
-    element: Session,
+    header: "dashboard",
+    path: "/dashboard",
+    element: Dashboard,
+    children: [
+      {
+        header: "sheets",
+        path: "/sheets",
+        element: Sheets,
+      },
+      {
+        header: "session",
+        path: "/session",
+        element: Session,
+      },
+      {
+        header: "editor",
+        path: "/editor",
+        element: Editor,
+      },
+      {
+        header: "settings",
+        path: '/settings',
+        element: Settings,
+        hideTransition: true,
+      },
+    ],
   },
   {
     header: "unauthorized",

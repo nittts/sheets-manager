@@ -7,12 +7,14 @@ type IPreferencesStore = {
   updateLang: (lang: Languages) => void;
   updateUIMode: (mode: UIModes) => void;
   updateAccent: (color: Colors) => void;
+  updateDisablePageTransition: (disablePageTransition: boolean) => void;
 };
 
 const basePreferences: IPreferences = { 
   lang: "us", 
   mode: "DARK",
-  accent: "red"
+  accent: "red",
+  disablePageTransition: false,
 }
 
 const updateLSValue = (preferences: IPreferences) => {
@@ -25,7 +27,8 @@ const usePreferencesStore = create<IPreferencesStore>((set) => ({
   preferences: LSUtils.get("@SHEETS_APP::Preferences") ?? basePreferences,
   updateLang: (lang: Languages) => set((state) => updateLSValue({ ...state.preferences, lang })),
   updateUIMode: (mode: UIModes) => set((state) => updateLSValue({ ...state.preferences, mode })),
-  updateAccent: (accent: Colors) => set((state) => updateLSValue({ ...state.preferences, accent }))
+  updateAccent: (accent: Colors) => set((state) => updateLSValue({ ...state.preferences, accent })),
+  updateDisablePageTransition: (disablePageTransition: boolean) => set((state) => updateLSValue({ ...state.preferences, disablePageTransition }))
 }));
 
 // Variables
@@ -33,11 +36,13 @@ const usePreferences = () => usePreferencesStore(({ preferences }) => preference
 const useLang = () => usePreferencesStore(({ preferences }) => preferences.lang);
 const useUIMode = () => usePreferencesStore(({ preferences }) => preferences.mode);
 const useAccent = () => usePreferencesStore(({ preferences }) => preferences.accent);
+const useDisablePageTransition = () => usePreferencesStore(({ preferences }) => preferences.disablePageTransition)
 
 // Methods
 const useUpdateLang = () => usePreferencesStore(({ updateLang }) => updateLang);
 const useUpdateUIMode = () => usePreferencesStore(({ updateUIMode }) => updateUIMode);
 const useUpdateAccent = () => usePreferencesStore(({ updateAccent }) => updateAccent);
+const useUpdateDisablePageTransition = () => usePreferencesStore(({ updateDisablePageTransition }) => updateDisablePageTransition)
 
 export {
   usePreferencesStore,
@@ -45,7 +50,9 @@ export {
   useLang,
   useUIMode,
   useAccent,
+  useDisablePageTransition,
   useUpdateLang,
   useUpdateUIMode,
-  useUpdateAccent
+  useUpdateAccent,
+  useUpdateDisablePageTransition
 };

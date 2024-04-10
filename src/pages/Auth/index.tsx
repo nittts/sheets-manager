@@ -10,8 +10,6 @@ function Auth() {
     <div>
       <ImagesPanel
         images={slideImages}
-        width="100%"
-        height="100%"
         style={{ filter: "brightness(0.1)", position: "fixed", zIndex: -1 }}
       />
       <Outlet />

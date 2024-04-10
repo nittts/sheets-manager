@@ -1,5 +1,5 @@
 import { useLanguage } from "@/providers/provider/LanguageProvider";
-import { Button, Result } from "antd";
+import { Button, Flex, Result } from "antd";
 import { useNavigate } from "react-router-dom";
 
 import Menzoberranzan from "@/assets/menzoberranzan.jpeg";
@@ -17,17 +17,19 @@ function NotFound() {
 
   if (notFound) {
     return (
-      <Result
-        icon={
-          <img
-            style={{ width: "400px", borderRadius: "999px" }}
-            src={Menzoberranzan}
-          />
-        }
-        title={notFound.title}
-        subTitle={notFound.subTitle}
-        extra={extra}
-      />
+      <Flex align="center" justify="center" style={{ height: "100vh" }}>
+        <Result
+          icon={
+            <img
+              style={{ width: "400px", borderRadius: "999px" }}
+              src={Menzoberranzan}
+            />
+          }
+          title={notFound.title}
+          subTitle={notFound.subTitle}
+          extra={extra}
+        />
+      </Flex>
     );
   }
 }

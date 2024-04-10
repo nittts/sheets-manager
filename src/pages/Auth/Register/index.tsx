@@ -15,7 +15,7 @@ function Register() {
   const navigate = useNavigate();
 
   const onFinish = (payload: RegisterPayload) => {
-    const registerPromise = registerSvc(payload).then(() => navigate("/login"));
+    const registerPromise = registerSvc(payload).then(() => navigate("/auth/login"));
 
     FeedbackUtils.promiseToast(registerPromise, language.registerMsgs);
   };

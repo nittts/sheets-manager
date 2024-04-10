@@ -17,11 +17,11 @@ function RegisterForm({ onFinish }: RegisterFormProps) {
   const { errors } = language;
 
   const [form] = Form.useForm();
-  const rules = [{ required: true, message: errors.required }];
-
   const password = Form.useWatch("password", form);
   const confirmPassword = Form.useWatch("confirmPassword", form);
-
+  
+  const rules = [{ required: true, message: errors.required }];
+  
   const [valid, setValid] = useState(false);
 
   return (

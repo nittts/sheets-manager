@@ -13,7 +13,7 @@ function GoBackButton() {
         type="primary"
         shape="circle"
         icon={<RollbackOutlined />}
-        onClick={() => navigate("/")}
+        onClick={() => navigate(-1)}
       />
     </Tooltip>
   );

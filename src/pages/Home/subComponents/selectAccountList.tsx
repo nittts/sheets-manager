@@ -1,8 +1,7 @@
-import SelectLanguage from "@/components/ui/SelectLanguage";
 import { useLanguage } from "@/providers/provider/LanguageProvider";
 import { useAccent } from "@/stores/preferences";
 import { presetPrimaryColors } from "@ant-design/colors";
-import { UserOutlined } from "@ant-design/icons";
+import { ArrowRightOutlined, UserOutlined } from "@ant-design/icons";
 import {
   Avatar,
   Button,
@@ -17,7 +16,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 type AccountItem = {
-  actions: (JSX.Element | Element)[];
+  actions: JSX.Element[];
   extra?: string;
   avatarSrc: JSX.Element | string;
   title: string;
@@ -56,7 +55,11 @@ function SelectAccountList({ list = [] }: { list?: AccountItem[] }) {
   const userActions: AccountItem[] = [
     {
       actions: [
-        <Button type="primary" onClick={() => navigate("/auth/register")}>
+        <Button
+          type="primary"
+          shape="round"
+          onClick={() => navigate("/auth/register")}
+        >
           {language.register}
         </Button>,
       ],
@@ -66,7 +69,11 @@ function SelectAccountList({ list = [] }: { list?: AccountItem[] }) {
     },
     {
       actions: [
-        <Button type="primary" onClick={() => navigate("/auth/login")}>
+        <Button
+          type="primary"
+          shape="round"
+          onClick={() => navigate("/auth/login")}
+        >
           {language.login}
         </Button>,
       ],
@@ -74,39 +81,51 @@ function SelectAccountList({ list = [] }: { list?: AccountItem[] }) {
       title: language.createNewAccountTitle,
       description: language.createNewAccountMsg,
     },
+    {
+      actions: [
+        <Button
+          type="primary"
+          shape="round"
+          onClick={() => navigate("/dashboard/sheets")}
+        >
+          {language.offline}
+        </Button>,
+      ],
+      avatarSrc: <ArrowRightOutlined />,
+      title: language.oneTimePassTitle,
+      description: language.oneTimePassMsg,
+    },
   ];
 
   return (
-    <>
-      <Flex vertical style={{ maxHeight: "80vh" }}>
-        <Title level={3}>{language.selectAccount}</Title>
+    <Flex vertical style={{ maxHeight: "80vh" }}>
+      <Title level={3}>{language.selectAccount}</Title>
 
-        <Card
-          bordered={false}
-          size="small"
-          style={{ overflow: "auto", height: "70vh" }}
-        >
-          <List
-            dataSource={list}
-            pagination={false}
-            locale={{ emptyText: language.noAccounts }}
-            size="large"
-            renderItem={renderAccountItem}
-          />
-        </Card>
+      <Card
+        bordered={false}
+        size="small"
+        style={{ overflow: "auto", height: "70vh" }}
+      >
+        <List
+          dataSource={list}
+          pagination={false}
+          locale={{ emptyText: language.noAccounts }}
+          size="large"
+          renderItem={renderAccountItem}
+        />
+      </Card>
 
-        <Divider />
+      <Divider />
 
-        <Card bordered={false} size="small">
-          <List
-            dataSource={userActions}
-            pagination={false}
-            size="large"
-            renderItem={renderAccountItem}
-          />
-        </Card>
-      </Flex>
-    </>
+      <Card bordered={false} size="small">
+        <List
+          dataSource={userActions}
+          pagination={false}
+          size="large"
+          renderItem={renderAccountItem}
+        />
+      </Card>
+    </Flex>
   );
 }
 

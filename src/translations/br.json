@@ -8,11 +8,14 @@
   "register": "Registrar",
   "goBack": "Voltar",
   "login": "Entrar",
+  "offline": "Offline",
   "selectAccount": "Selecione uma conta",
   "createNewAccountTitle": "Adicionar nova conta",
   "createNewAccountMsg": "Adicione uma nova conta ou entre com acesso único",
   "registerNewAccountTitle": "Registar nova conta",
   "registerNewAccountMsg": "Registrar nova conta para ter acesso",
+  "oneTimePassTitle": "Autenticar offline",
+  "oneTimePassMsg": "Autenticar offline e modifique/crie fichas sem a possibilidade de entrar em sessões",
   "noAccounts": "Sem contas, cadastre uma!",
   "passwordCheck": {
     "heading": "Sua senha deve ter.",
@@ -56,5 +59,18 @@
   "notFound": {
     "title": "Ops! Região não encontrada, visitando terras fora desse reino aventureiro?",
     "subTitle": "Procurando por onde, Menzoberranzan?..."
-  }
+  },
+  "sheets": "Fichas",
+  "sessions": "sessões",
+  "manage": "Gerenciar",
+  "list": "Listar",
+  "create": "Criar",
+  "edit": "Editar",
+  "del": "Remover",
+  "joinSession": "Entrar em uma sessão",
+  "createSession": "Criar Sessões",
+  "listSession": "Listar Sessões",
+  "settings": "Preferencias",
+  "leave": "Sair",
+  "madeWithLoveBy": "Feito com amor por"
 }

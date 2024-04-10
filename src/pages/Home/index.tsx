@@ -17,8 +17,6 @@ function Home() {
     <Row align="middle" justify="end">
       <ImagesPanel
         images={slideImages}
-        width="100%"
-        height="100%"
         style={{ filter: "brightness(0.1)", position: "fixed", zIndex: -1 }}
       />
       <Col xs={24} lg={12}>

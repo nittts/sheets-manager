@@ -1,5 +1,5 @@
 import * as colors from "@ant-design/colors";
-import { useAccent } from "@/stores/preferences";
+import { useAccent, useDisablePageTransition } from "@/stores/preferences";
 import { ReactNode, useEffect, useState } from "preact/compat";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
@@ -32,6 +32,7 @@ const directionsMap = {
 function PageTransition({ children, hideTransition }: PageTransitionProps) {
   const accent = useAccent();
   const location = useLocation();
+  const disablePageTransition = useDisablePageTransition();
 
   const [loaded, setLoaded] = useState(false);
   const [prevLoc, setPrevLoc] = useState("");
@@ -50,7 +51,7 @@ function PageTransition({ children, hideTransition }: PageTransitionProps) {
     }, 250);
   }, [prevLoc]);
 
-  if (hideTransition) {
+  if (hideTransition || disablePageTransition) {
     return (
       <motion.div
         initial={{ opacity: 0 }}
