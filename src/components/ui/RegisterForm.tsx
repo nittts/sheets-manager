@@ -43,7 +43,7 @@ function RegisterForm({ onFinish }: RegisterFormProps) {
           block
           type="primary"
           size="large"
-          disabled={!valid}
+          disabled={!valid && !!form.getFieldsError()}
           style={{ marginTop: "20px" }}
           onClick={() => form.submit()}
         >
@@ -61,11 +61,33 @@ function renderFormItems() {
   const rules = [{ required: true, message: errors.required }];
 
   const formItems = [
-    { prefix: <UserOutlined />, placeholder: language.nickname, name: "nickname"},
-    { prefix: <UserOutlined />, placeholder: language.account, name: "username"},
-    { prefix: <UserOutlined />, placeholder: language.nickname, name: "nickname"},
-    { prefix: <LockOutlined />, placeholder: language.password, name: "password", type: "password"},
-    { prefix: <LockOutlined />, placeholder: language.password, name: "confirmPassword", type: "password"},
+    {
+      prefix: <UserOutlined />,
+      placeholder: language.nickname,
+      name: "nickname",
+    },
+    {
+      prefix: <UserOutlined />,
+      placeholder: language.account,
+      name: "username",
+    },
+    {
+      prefix: <UserOutlined />,
+      placeholder: language.nickname,
+      name: "nickname",
+    },
+    {
+      prefix: <LockOutlined />,
+      placeholder: language.password,
+      name: "password",
+      type: "password",
+    },
+    {
+      prefix: <LockOutlined />,
+      placeholder: language.password,
+      name: "confirmPassword",
+      type: "password",
+    },
   ];
 
   return formItems.map((opt) => (
