@@ -21,9 +21,13 @@ function AntdThemeProvider({ children }: { children: ReactNode }) {
     colorText: mode.includes("DARK") ? "#FFF" : "#000",
     colorLink: presetPrimaryColors[accent],
   };
+  const components = {
+    Layout: { triggerBg: presetPrimaryColors[accent] },
+    Menu: { darkPopupBg: "#2b2b2b", darkSubMenuItemBg: "#2b2b2b" },
+  };
 
   return (
-    <ConfigProvider theme={{ algorithm, token }}>
+    <ConfigProvider theme={{ algorithm, token, components }}>
       {children}
     </ConfigProvider>
   );

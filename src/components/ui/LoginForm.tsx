@@ -24,8 +24,6 @@ function LoginForm({ onFinish }: LoginFormProps) {
   const language = useLanguage();
   const [form] = Form.useForm();
 
-  const rules = [{ required: true, message: language.errors.required }];
-
   return (
     <Row gutter={[24, 36]} style={{ width: "clamp(200px, 100%, 500px)" }}>
       <Col span={24}>
@@ -38,23 +36,7 @@ function LoginForm({ onFinish }: LoginFormProps) {
           layout="vertical"
           onFinish={onFinish}
         >
-          <Form.Item name="account" rules={rules}>
-            <Input
-              size="large"
-              variant="filled"
-              prefix={<UserOutlined />}
-              placeholder={language.account}
-            />
-          </Form.Item>
-          <Form.Item name="password" rules={rules}>
-            <Input
-              size="large"
-              variant="filled"
-              prefix={<LockOutlined />}
-              type="password"
-              placeholder={language.password}
-            />
-          </Form.Item>
+          {renderFormItems()}
           <Form.Item>
             <Form.Item name="remember" valuePropName="checked" noStyle>
               <Checkbox>{language.rememberMe}</Checkbox>
@@ -76,6 +58,39 @@ function LoginForm({ onFinish }: LoginFormProps) {
       </Col>
     </Row>
   );
+}
+
+function renderFormItems() {
+  const language = useLanguage();
+  const { errors } = language;
+
+  const rules = [{ required: true, message: errors.required }];
+
+  const formItems = [
+    {
+      prefix: <UserOutlined />,
+      placeholder: language.account,
+      name: "username",
+    },
+    {
+      prefix: <LockOutlined />,
+      placeholder: language.password,
+      name: "password",
+      type: "password",
+    },
+  ];
+
+  return formItems.map((opt) => (
+    <Form.Item name={opt.name} rules={rules}>
+      <Input
+        size="large"
+        variant="filled"
+        prefix={opt.prefix}
+        placeholder={opt.placeholder}
+        type={opt?.type}
+      />
+    </Form.Item>
+  ));
 }
 
 export default LoginForm;

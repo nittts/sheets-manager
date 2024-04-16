@@ -72,5 +72,9 @@
   "listSession": "List sessions",
   "settings": "Preferences",
   "leave": "Leave",
-  "madeWithLoveBy": "Made with love by"
+  "madeWithLoveBy": "Made with love by",
+  "darkMode": "Dark Mode",
+  "lightMode": "Light Mode",
+  "compact": "compact",
+  "disableTransition": "Disable Transition"
 }

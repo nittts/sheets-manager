@@ -20,7 +20,7 @@ function Login() {
 
   return (
     <Row>
-      <Col xs={24} lg={12} style={{ minHeight: "100vh" }}>
+      <Col xs={24} lg={13} style={{ minHeight: "100vh" }}>
         <Card
           bordered={false}
           style={{ borderRadius: 0, minHeight: "100%" }}

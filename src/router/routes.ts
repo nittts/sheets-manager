@@ -12,8 +12,6 @@ const Session = lazy(() => import("@/pages/Session"));
 const Sheets = lazy(() => import("@/pages/Sheets"));
 const Editor = lazy(() => import("@/pages/Editor"));
 
-const Settings = lazy(() => import("@/pages/Settings"))
-
 const Unauthorized = lazy(() => import("@/pages/Fallbacks/401"));
 const Forbidden = lazy(() => import("@/pages/Fallbacks/403"));
 const NotFound = lazy(() => import("@/pages/Fallbacks/404"));
@@ -61,12 +59,6 @@ export const Routes: IRoute[] = [
         header: "editor",
         path: "/editor",
         element: Editor,
-      },
-      {
-        header: "settings",
-        path: '/settings',
-        element: Settings,
-        hideTransition: true,
       },
     ],
   },

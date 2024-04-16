@@ -7,7 +7,7 @@ type IPreferencesStore = {
   updateLang: (lang: Languages) => void;
   updateUIMode: (mode: UIModes) => void;
   updateAccent: (color: Colors) => void;
-  updateDisablePageTransition: (disablePageTransition: boolean) => void;
+  updateDisablePageTransition: () => void;
 };
 
 const basePreferences: IPreferences = { 
@@ -19,7 +19,6 @@ const basePreferences: IPreferences = {
 
 const updateLSValue = (preferences: IPreferences) => {
   LSUtils.set(`@SHEETS_APP::Preferences`, preferences);
-
   return { preferences };
 };
 
@@ -28,7 +27,7 @@ const usePreferencesStore = create<IPreferencesStore>((set) => ({
   updateLang: (lang: Languages) => set((state) => updateLSValue({ ...state.preferences, lang })),
   updateUIMode: (mode: UIModes) => set((state) => updateLSValue({ ...state.preferences, mode })),
   updateAccent: (accent: Colors) => set((state) => updateLSValue({ ...state.preferences, accent })),
-  updateDisablePageTransition: (disablePageTransition: boolean) => set((state) => updateLSValue({ ...state.preferences, disablePageTransition }))
+  updateDisablePageTransition: () => set((state) => updateLSValue({ ...state.preferences, disablePageTransition: !state.preferences.disablePageTransition }))
 }));
 
 // Variables

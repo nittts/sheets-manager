@@ -8,7 +8,8 @@ export default function buildNestedTree(routes: IRoute[], parentRoute = "") {
       path={`${parentRoute}${route.path}`}
       element={<PageElement route={route} />}
     >
-      {route.children && buildNestedTree(route.children, `${parentRoute}${route.path}`)}
+      {route.children &&
+        buildNestedTree(route.children, `${parentRoute}${route.path}`)}
     </Route>
   ));
 }

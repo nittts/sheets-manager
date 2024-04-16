@@ -22,7 +22,7 @@ export class FeedbackUtils {
     toast(message, opts);
   }
 
-  public static promiseToast(promise: Promise<any>, opts: ToastMsgPromise) {
+  public static promiseToast(promise: Promise<void>, opts: ToastMsgPromise) {
     toast.promise(promise, opts);
   }
 }

@@ -31,19 +31,19 @@ const directionsMap = {
 
 function PageTransition({ children, hideTransition }: PageTransitionProps) {
   const accent = useAccent();
-  const location = useLocation();
+  const { pathname, state } = useLocation();
   const disablePageTransition = useDisablePageTransition();
 
   const [loaded, setLoaded] = useState(false);
   const [prevLoc, setPrevLoc] = useState("");
 
   useEffect(() => {
-    setPrevLoc(location.pathname);
+    setPrevLoc(pathname);
     setLoaded(false);
-    if (location.pathname === prevLoc) {
+    if (pathname === prevLoc) {
       setPrevLoc("");
     }
-  }, [location]);
+  }, [pathname]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -51,17 +51,8 @@ function PageTransition({ children, hideTransition }: PageTransitionProps) {
     }, 250);
   }, [prevLoc]);
 
-  if (hideTransition || disablePageTransition) {
-    return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        key="children"
-      >
-        {children}
-      </motion.div>
-    );
+  if (hideTransition || disablePageTransition || state?.hideTransition) {
+    return children
   }
 
   return (

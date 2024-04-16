@@ -4,19 +4,10 @@ import { usePreferencesStore } from "@/stores/preferences";
 import { LangUtils } from "@/utils/lang";
 import { Select, Space } from "antd";
 
-type Option = { label: string; value: string; src: string };
+type Option = { label: string; value: string; src: string; key: string };
 
 const filterOption = (input: string, option?: Option) =>
-  (option?.label ?? "").toLowerCase().includes(input.toLowerCase());
-
-const renderOptions = (opt: Option) => (
-  <Select.Option key={opt.value}>
-    <Space align="center">
-      <img src={opt.src} width="25rem" style={{ marginBottom: "-0.5rem" }} />
-      {opt.label}
-    </Space>
-  </Select.Option>
-);
+  (option?.key ?? "").toLowerCase().includes(input.toLowerCase());
 
 function SelectLanguage() {
   const language = useLanguage();
@@ -24,6 +15,7 @@ function SelectLanguage() {
   const { preferences, updateLang } = usePreferencesStore();
 
   const options = availableLanguages.map((abbreviation) => ({
+    key: language[`${abbreviation}_lang`],
     value: abbreviation,
     label: language[`${abbreviation}_lang`],
     src: `https://flagsapi.com/${abbreviation.toUpperCase()}/flat/64.png`,
@@ -44,6 +36,17 @@ function SelectLanguage() {
     >
       {options.map(renderOptions)}
     </Select>
+  );
+}
+
+function renderOptions(opt: Option) {
+  return (
+    <Select.Option key={opt.label} value={opt.value}>
+      <Space align="center">
+        <img src={opt.src} width="25rem" style={{ marginBottom: "-0.5rem" }} />
+        {opt.label}
+      </Space>
+    </Select.Option>
   );
 }
 

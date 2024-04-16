@@ -8,20 +8,14 @@ import { useState } from "preact/hooks";
 
 const { Title } = Typography;
 
-type RegisterFormProps = {
-  onFinish: (payload: RegisterPayload) => void;
-};
+type RegisterFormProps = { onFinish: (payload: RegisterPayload) => void };
 
 function RegisterForm({ onFinish }: RegisterFormProps) {
   const language = useLanguage();
-  const { errors } = language;
-
   const [form] = Form.useForm();
   const password = Form.useWatch("password", form);
   const confirmPassword = Form.useWatch("confirmPassword", form);
-  
-  const rules = [{ required: true, message: errors.required }];
-  
+
   const [valid, setValid] = useState(false);
 
   return (
@@ -36,43 +30,7 @@ function RegisterForm({ onFinish }: RegisterFormProps) {
           layout="vertical"
           onFinish={onFinish}
         >
-          <Form.Item name="nickname" rules={rules}>
-            <Input
-              size="large"
-              variant="filled"
-              prefix={<UserOutlined />}
-              placeholder={language.nickname}
-            />
-          </Form.Item>
-
-          <Form.Item name="username" rules={rules}>
-            <Input
-              size="large"
-              variant="filled"
-              prefix={<UserOutlined />}
-              placeholder={language.account}
-            />
-          </Form.Item>
-
-          <Form.Item name="password" rules={rules}>
-            <Input
-              size="large"
-              variant="filled"
-              prefix={<LockOutlined />}
-              type="password"
-              placeholder={language.password}
-            />
-          </Form.Item>
-
-          <Form.Item name="confirmPassword" rules={rules}>
-            <Input
-              size="large"
-              variant="filled"
-              prefix={<LockOutlined />}
-              type="password"
-              placeholder={language.confirmPassword}
-            />
-          </Form.Item>
+          {renderFormItems()}
         </Form>
       </Col>
       <Col span={24}>
@@ -94,6 +52,33 @@ function RegisterForm({ onFinish }: RegisterFormProps) {
       </Col>
     </Row>
   );
+}
+
+function renderFormItems() {
+  const language = useLanguage();
+  const { errors } = language;
+
+  const rules = [{ required: true, message: errors.required }];
+
+  const formItems = [
+    { prefix: <UserOutlined />, placeholder: language.nickname, name: "nickname"},
+    { prefix: <UserOutlined />, placeholder: language.account, name: "username"},
+    { prefix: <UserOutlined />, placeholder: language.nickname, name: "nickname"},
+    { prefix: <LockOutlined />, placeholder: language.password, name: "password", type: "password"},
+    { prefix: <LockOutlined />, placeholder: language.password, name: "confirmPassword", type: "password"},
+  ];
+
+  return formItems.map((opt) => (
+    <Form.Item name={opt.name} rules={rules}>
+      <Input
+        size="large"
+        variant="filled"
+        prefix={opt.prefix}
+        placeholder={opt.placeholder}
+        type={opt?.type}
+      />
+    </Form.Item>
+  ));
 }
 
 export default RegisterForm;
