@@ -76,5 +76,6 @@
   "darkMode": "Dark Mode",
   "lightMode": "Light Mode",
   "compact": "compact",
-  "disableTransition": "Disable Transition"
+  "disableTransition": "Disable Transition",
+  "enableTransition": "Enable Transition"
 }

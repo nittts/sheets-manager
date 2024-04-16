@@ -61,7 +61,7 @@
     "subTitle": "Procurando por onde, Menzoberranzan?..."
   },
   "sheets": "Fichas",
-  "sessions": "sessões",
+  "sessions": "Sessões",
   "manage": "Gerenciar",
   "list": "Listar",
   "create": "Criar",
@@ -76,5 +76,6 @@
   "darkMode": "Modo Escuro",
   "lightMode": "Modo Claro",
   "compact": "compacto",
-  "disableTransition": "Desabilitar Transição"
+  "disableTransition": "Desabilitar Transição",
+  "enableTransition": "Habilitar Transição"
 }

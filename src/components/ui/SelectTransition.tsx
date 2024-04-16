@@ -8,7 +8,7 @@ import { Button } from "antd";
 function SelectTransition() {
   const disablePageTransition = useDisablePageTransition();
   const updateDisableTransition = useUpdateDisablePageTransition();
-  const { disableTransition } = useLanguage();
+  const { disableTransition, enableTransition } = useLanguage();
 
   return (
     <Button
@@ -18,7 +18,7 @@ function SelectTransition() {
         updateDisableTransition();
       }}
     >
-      {disableTransition}
+      {disablePageTransition ? enableTransition : disableTransition}
     </Button>
   );
 }

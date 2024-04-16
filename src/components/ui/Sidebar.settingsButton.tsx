@@ -35,7 +35,7 @@ function SidebarSettingsButton() {
         <Button
           onClick={handleShowPopover}
           type="primary"
-          icon={<SettingOutlined />}
+          icon={<SettingOutlined style={{ fontSize: "1.5em" }} />}
           key="dropdown-side-settings"
         />
       </Popover>

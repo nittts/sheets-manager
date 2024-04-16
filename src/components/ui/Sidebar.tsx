@@ -23,8 +23,13 @@ function Sidebar() {
         position: "fixed",
       }}
     >
-      <Image preview={false} src={logo} style={{ width: "100%" }} />
-      <Flex vertical align="center">
+      <Flex
+        vertical
+        align="center"
+        gap={6}
+        style={{ background: token.colorPrimary, paddingBottom: 3 }}
+      >
+        <Image preview={false} src={logo} style={{ width: "100%" }} />
         <SidebarSettingsButton />
       </Flex>
       <SidebarMenu />
