@@ -2,7 +2,7 @@ import { Card, Col, Row } from "antd";
 
 import RegisterForm from "@/components/ui/RegisterForm";
 import GoBackButton from "@/components/ui/GoBackButton";
-import MenuHeader from "@/components/ui/menuHeader";
+import MenuHeader from "@/components/ui/MenuHeader";
 
 import { useLanguage } from "@/providers/provider/LanguageProvider";
 import { RegisterPayload } from "@/@types/auth";
@@ -15,7 +15,9 @@ function Register() {
   const navigate = useNavigate();
 
   const onFinish = (payload: RegisterPayload) => {
-    const registerPromise = registerSvc(payload).then(() => navigate("/auth/login"));
+    const registerPromise = registerSvc(payload).then(() =>
+      navigate("/auth/login"),
+    );
 
     FeedbackUtils.promiseToast(registerPromise, language.registerMsgs);
   };

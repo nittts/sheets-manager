@@ -1,7 +1,7 @@
 import { LoginPayload } from "@/@types/auth";
 import GoBackButton from "@/components/ui/GoBackButton";
 import LoginForm from "@/components/ui/LoginForm";
-import MenuHeader from "@/components/ui/menuHeader";
+import MenuHeader from "@/components/ui/MenuHeader";
 import { useLanguage } from "@/providers/provider/LanguageProvider";
 import { loginSvc } from "@/services/auth";
 import { FeedbackUtils } from "@/utils/feedback";
@@ -13,7 +13,9 @@ function Login() {
   const language = useLanguage();
 
   const onFinish = async (payload: LoginPayload) => {
-    const loginPromise = loginSvc(payload).then(() => navigate("/dashboard/sheets"));
+    const loginPromise = loginSvc(payload).then(() =>
+      navigate("/dashboard/sheets"),
+    );
 
     FeedbackUtils.promiseToast(loginPromise, language.loginMsgs);
   };

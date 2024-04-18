@@ -8,9 +8,9 @@ const Login = lazy(() => import("@/pages/Auth/Login"));
 const Register = lazy(() => import("@/pages/Auth/Register"));
 
 const Dashboard = lazy(() => import("@/pages/Dashboard"));
-const Session = lazy(() => import("@/pages/Session"));
-const Sheets = lazy(() => import("@/pages/Sheets"));
-const Editor = lazy(() => import("@/pages/Editor"));
+const Session = lazy(() => import("@/pages/Dashboard/Session"));
+const Sheets = lazy(() => import("@/pages/Dashboard/Sheets"));
+const Editor = lazy(() => import("@/pages/Dashboard/Editor"));
 
 const Unauthorized = lazy(() => import("@/pages/Fallbacks/401"));
 const Forbidden = lazy(() => import("@/pages/Fallbacks/403"));

@@ -3,7 +3,7 @@ import { Card, Col, Row } from "antd";
 
 import SelectAccountList from "./subComponents/selectAccountList";
 import SelectLanguage from "@/components/ui/SelectLanguage";
-import MenuHeader from "@/components/ui/menuHeader";
+import MenuHeader from "@/components/ui/MenuHeader";
 import { useLanguage } from "@/providers/provider/LanguageProvider";
 
 const slideImages = Object.keys(

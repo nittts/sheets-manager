@@ -7,7 +7,7 @@ function MenuHeader({ title }: { title: string }) {
   const { token } = theme.useToken();
 
   return (
-    <Flex align="baseline">
+    <Flex align="center">
       <Image
         src={LoginIcon}
         preview={false}
@@ -19,7 +19,9 @@ function MenuHeader({ title }: { title: string }) {
           margin: "4px",
         }}
       />
-      <Title level={4}>{title}</Title>
+      <Title level={4} style={{ marginBottom: 0 }}>
+        {title}
+      </Title>
     </Flex>
   );
 }
