@@ -8,7 +8,7 @@ const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 const algorithmDict = {
   LIGHT: defaultAlgorithm,
   DARK: darkAlgorithm,
-  COMPACT_LIGHT: [compactAlgorithm, defaultAlgorithm],
+  COMPACT_LIGHT: compactAlgorithm,
   COMPACT_DARK: [compactAlgorithm, darkAlgorithm],
 };
 

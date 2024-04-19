@@ -1,24 +1,17 @@
-import { Card, Flex } from "antd";
+import { Divider, Flex } from "antd";
+import RecentSheets from "./subComponents/RecentSheets";
+import SheetsList from "./subComponents/SheetsList";
+import SheetsFilter from "./subComponents/SheetsFilter";
 
-const containerStyles = {
-  background: "red",
-  margin: "1vh 1vw 1vw 48px",
-};
-
-const cardStyles = {
-  width: "100%",
-};
+const containerStyles = { margin: "2vh 1vw 1vw 48px" };
 
 function Sheets() {
   return (
-    <Flex style={containerStyles}>
-      <Card style={cardStyles}>
-        {Array.from(new Array(200))
-          .fill("a")
-          .map((a) => (
-            <p>{a}</p>
-          ))}
-      </Card>
+    <Flex style={containerStyles} gap="middle" vertical>
+      <RecentSheets />
+      <Divider />
+      <SheetsFilter />
+      <SheetsList />
     </Flex>
   );
 }

@@ -9,12 +9,7 @@ function Dashboard() {
     <Layout style={{ minHeight: "100vh" }}>
       <Sidebar />
       <Layout>
-        <Content
-          style={{
-            maxHeight: "100vh",
-            overflow: "auto",
-          }}
-        >
+        <Content style={{ maxHeight: "100vh", overflow: "auto" }}>
           <Outlet />
         </Content>
       </Layout>

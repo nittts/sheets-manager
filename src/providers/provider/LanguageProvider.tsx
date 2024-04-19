@@ -1,3 +1,4 @@
+import { NestedStringObject, StringObject } from "@/@types/common";
 import { Languages } from "@/@types/preferences";
 import { useLang } from "@/stores/preferences";
 import { LangUtils } from "@/utils/lang";
@@ -24,8 +25,8 @@ type languageContext = {
 const LanguageContext = createContext<languageContext>({});
 
 function LanguageProvider({ children }: { children: ReactNode }) {
+  const [languageFile, setLanguageFile] = useState<languageContext>({});
   const lang = useLang();
-  const [languageFile, setLanguageFile] = useState({});
 
   const updateLanguageFile = async (newLanguage: Languages) => {
     const newLang = await fetchLang(newLanguage);
