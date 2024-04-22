@@ -1,5 +1,5 @@
 import { Colors } from "@/@types/preferences";
-import { SheetMetadata } from "@/@types/sheets";
+import { CreateSheetPayload, SheetMetadata } from "@/@types/sheets";
 
 const mockSheet = {
   createdAt: new Date().toISOString(),
@@ -22,4 +22,10 @@ export async function getSheets(filters?: unknown): Promise<SheetMetadata[]> {
 
 export async function deleteSheet(sheeId: string): Promise<SheetMetadata> {
   return mockList.find((value) => value.id === sheeId)!;
+}
+
+export async function createSheet(payload: CreateSheetPayload): Promise<SheetMetadata> {
+  // const response = await callT('createSheet', payload)
+  
+  return {...payload, id: `${mockSheet.id}${Math.random()}`}
 }

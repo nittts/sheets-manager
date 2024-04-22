@@ -88,5 +88,15 @@
   "characters": "Characters",
   "listCharacters": "List Characters",
   "editCharacter": "Edit Characters",
-  "createCharacter": "Create Character"
+  "createCharacter": "Create Character",
+  "createSheetMsgs": {
+    "error": "Failed during creation, try again",
+    "success": "Created with success!",
+    "loading": "Performing Creation..."
+  },
+  "deleteSheetMsgs": {
+    "error": "Failed during delete, try again",
+    "success": "Delete with success!",
+    "loading": "Performing deletion..."
+  }
 }

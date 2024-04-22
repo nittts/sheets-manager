@@ -13,3 +13,5 @@ export type SheetMetadata = {
   id: string;
   tags: SheetTag[];
 } & SheetInfo;
+
+export type CreateSheetPayload = Omit<SheetMetadata, "id">;

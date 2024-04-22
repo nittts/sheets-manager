@@ -1,6 +1,6 @@
 import { LoginPayload } from "@/@types/auth";
 import GoBackButton from "@/components/ui/GoBackButton";
-import LoginForm from "@/components/ui/LoginForm";
+import LoginForm from "@/components/ui/Form/Form.login";
 import MenuHeader from "@/components/ui/MenuHeader";
 import { useLanguage } from "@/providers/provider/LanguageProvider";
 import { loginSvc } from "@/services/auth";

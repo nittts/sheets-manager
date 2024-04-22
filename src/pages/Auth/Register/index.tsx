@@ -1,6 +1,6 @@
 import { Card, Col, Row } from "antd";
 
-import RegisterForm from "@/components/ui/Register.form";
+import RegisterForm from "@/components/ui/Form/Form.register";
 import GoBackButton from "@/components/ui/GoBackButton";
 import MenuHeader from "@/components/ui/MenuHeader";
 

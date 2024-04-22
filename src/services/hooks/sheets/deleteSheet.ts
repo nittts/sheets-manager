@@ -19,7 +19,7 @@ export default function deleteSheet() {
     );
   };
 
-  const { mutate: deleteSheet, status: deleteSheetStatus } = useMutation({
+  const { mutateAsync: deleteSheet, status: deleteSheetStatus } = useMutation({
     mutationFn: deleteSheetSvc,
     onSuccess,
   });

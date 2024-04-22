@@ -88,5 +88,15 @@
   "characters": "Personagens",
   "listCharacters": "Listar Personagens",
   "editCharacter": "Editar Personagem",
-  "createCharacter": "Criar Personagem"
+  "createCharacter": "Criar Personagem",
+  "createSheetMsgs": {
+    "error": "Falha ao criar Ficha, tente novamente",
+    "success": "Criado com Sucesso!",
+    "loading": "Realizando criação..."
+  },
+  "deleteSheetMsgs": {
+    "error": "Falha ao remover Ficha, tente novamente",
+    "success": "Removido com Sucesso!",
+    "loading": "Realizando remoção..."
+  }
 }
