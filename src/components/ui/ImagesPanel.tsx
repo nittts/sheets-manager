@@ -7,22 +7,22 @@ type IImagesPanel = {
   style?: React.CSSProperties;
 };
 
-function ImagesPanel({ images, height = '100%', width = '100%', style, ...props }: IImagesPanel) {
+const imgStyles = { width: "100%", height: "100%", objectFit: "cover" };
+
+function ImagesPanel(props: IImagesPanel) {
+  const { images, height = "100%", width = "100%", style, ...rest } = props;
+
+  const styles = {
+    width,
+    height,
+    filter: "brightness(0.5)",
+    ...style,
+  };
+
   return (
-    <Flex
-      style={{
-        width,
-        height,
-        filter: "brightness(0.5)",
-        ...style,
-      }}
-      {...props}
-    >
+    <Flex style={styles} {...rest}>
       {images.map((imgSrc) => (
-        <img
-          src={imgSrc}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
+        <img src={imgSrc} style={imgStyles} />
       ))}
     </Flex>
   );

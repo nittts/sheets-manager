@@ -1,4 +1,3 @@
-import { NestedStringObject, StringObject } from "@/@types/common";
 import { Languages } from "@/@types/preferences";
 import { useLang } from "@/stores/preferences";
 import { LangUtils } from "@/utils/lang";

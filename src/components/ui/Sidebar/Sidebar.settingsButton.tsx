@@ -1,10 +1,10 @@
 import { SettingOutlined } from "@ant-design/icons";
 import { Button, Flex, Popover } from "antd";
-import SelectLanguage from "./SelectLanguage";
+import SelectLanguage from "../Select/Select.language";
 import { useState } from "preact/hooks";
-import SelectAccent from "./SelectAccent";
-import SelectUIMode from "./SelectUIMode";
-import SelectTransition from "./SelectTransition";
+import SelectAccent from "../Select/Select.accent";
+import SelectUIMode from "../Select/Select.UIMode";
+import SelectTransition from "../Select/Select.transition";
 
 const content = () => {
   return (

@@ -13,8 +13,8 @@ body {
 }
 
 *::-webkit-scrollbar {
-  width: 8px; /* vertical scrollbar */
-  height: 8px; /* horizontal scrollbar */
+  width: 4px; /* vertical scrollbar */
+  height: 4px; /* horizontal scrollbar */
 }
 
 *::-webkit-scrollbar-track {
@@ -24,7 +24,7 @@ body {
 *::-webkit-scrollbar-thumb {
   background: gray;
   border-radius: 2em;
-  border: calc(8px / 4) solid transparent;
+  border: calc(4px / 4) solid transparent;
 }
 
 *::-webkit-scrollbar-thumb:hover {

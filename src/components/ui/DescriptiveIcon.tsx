@@ -11,6 +11,7 @@ type IDescriptiveIconProps = {
   loading?: boolean;
   shape?: "circle" | "round" | "default";
   size?: "large" | "middle" | "small";
+  onClick?: (value: unknown) => void;
 };
 
 function DescriptiveIcon(props: IDescriptiveIconProps) {

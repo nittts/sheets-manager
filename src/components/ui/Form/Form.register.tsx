@@ -1,7 +1,7 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Col, Form, Input, Row, Typography } from "antd";
 
-import PasswordChecker from "./PasswordChecker";
+import PasswordChecker from "../PasswordChecker";
 import { useLanguage } from "@/providers/provider/LanguageProvider";
 import { RegisterPayload } from "@/@types/auth";
 import { useState } from "preact/hooks";

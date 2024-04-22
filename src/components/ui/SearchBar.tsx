@@ -1,29 +1,24 @@
-import { AudioOutlined } from "@ant-design/icons";
+import { useLanguage } from "@/providers/provider/LanguageProvider";
 import { Input } from "antd";
 import { SearchProps } from "antd/es/input";
 
 const { Search } = Input;
 
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: "#1677ff",
-    }}
-  />
-);
+type SearchBarProps = {
+  onChange: (value: string) => void;
+};
 
-const onSearch: SearchProps["onSearch"] = (value, _e, info) =>
-  console.log(info?.source, value);
+function SearchBar({ onChange }: SearchBarProps) {
+  const language = useLanguage();
+  const onSearch: SearchProps["onSearch"] = (value) => onChange(value);
 
-function SearchBar() {
   return (
     <div style={{ minWidth: "15em" }}>
       <Search
-        placeholder="input search text"
+        size="large"
+        placeholder={language.inputSearch}
         onSearch={onSearch}
         enterButton
-        suffix={suffix}
       />
     </div>
   );

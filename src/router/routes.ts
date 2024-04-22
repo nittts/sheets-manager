@@ -11,6 +11,7 @@ const Dashboard = lazy(() => import("@/pages/Dashboard"));
 const Session = lazy(() => import("@/pages/Dashboard/Session"));
 const Sheets = lazy(() => import("@/pages/Dashboard/Sheets"));
 const Editor = lazy(() => import("@/pages/Dashboard/Editor"));
+const Characters = lazy(() => import("@/pages/Dashboard/Characters"));
 
 const Unauthorized = lazy(() => import("@/pages/Fallbacks/401"));
 const Forbidden = lazy(() => import("@/pages/Fallbacks/403"));
@@ -59,6 +60,11 @@ export const Routes: IRoute[] = [
         header: "editor",
         path: "/editor",
         element: Editor,
+      },
+      {
+        header: "characters",
+        path: "/characters",
+        element: Characters,
       },
     ],
   },

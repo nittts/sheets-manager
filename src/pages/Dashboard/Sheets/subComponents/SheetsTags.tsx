@@ -1,38 +1,32 @@
-import { StyleUtils } from "@/utils/styles";
-import { Space, Tag } from "antd";
-import { useState } from "preact/hooks";
+import { SheetTag } from "@/@types/sheets";
+import { Space, Tag as AntdTag } from "antd";
+import { useMemo } from "preact/hooks";
 
-const tagsData = [
-  "Chuchulo",
-  "DND",
-  "VAMPIRONAHW",
-  "TROMBETAAAAAAAA",
-  "TROMBETAAAAAAAA",
-  "TROMBETAAAAAAAA",
-  "TROMBETAAAAAAAA",
-  "TROMBETAAAAAAAA",
-  "TROMBETAAAAAAAA",
-  "TROMBETAAAAAAAA",
-  "TROMBETAAAAAAAA",
-  "TROMBETAAAAAAAA",
-];
+type SheetsTagsFilter = {
+  selectedTags: string[];
+  onChange: (tag: string) => void;
+  userTags: SheetTag[];
+};
 
-function SheetsTagsFilter() {
-  const [selectedTags] = useState<string[]>(["DND"]);
+const renderSelectedTags = (filter: SheetsTagsFilter) => {
+  const { onChange, selectedTags, userTags = [] } = filter;
 
-  return (
-    <Space style={{ padding: "8px" }}>
-      {tagsData.map((tag) => (
-        <Tag
-          color={StyleUtils.getRandomAccentColor()}
-          key={tag}
-          checked={selectedTags.includes(tag)}
-        >
-          {tag}
-        </Tag>
-      ))}
-    </Space>
-  );
+  return userTags.map(({ tag, color }) => (
+    <AntdTag
+      color={selectedTags.includes(tag) ? `${color}-inverse` : color}
+      key={`${tag}_${color}`}
+      onClick={() => onChange(tag)}
+      style={{ cursor: "pointer" }}
+    >
+      {tag}
+    </AntdTag>
+  ));
+};
+
+function SheetsTagsFilter(filterProps: SheetsTagsFilter) {
+  const tags = useMemo(() => renderSelectedTags(filterProps), [filterProps]);
+
+  return <Space style={{ padding: "8px" }}>{tags}</Space>;
 }
 
 export default SheetsTagsFilter;

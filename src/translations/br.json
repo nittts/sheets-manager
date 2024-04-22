@@ -77,5 +77,16 @@
   "lightMode": "Modo Claro",
   "compact": "compacto",
   "disableTransition": "Desabilitar Transição",
-  "enableTransition": "Habilitar Transição"
+  "enableTransition": "Habilitar Transição",
+  "recentSheets": "Fichas Recentes",
+  "character": "Personagem",
+  "newChar": "Novo Personagem",
+  "createdAt": "Criado em",
+  "description": "Descrição",
+  "name": "Nome",
+  "inputSearch": "Entre com a pesquisa",
+  "characters": "Personagens",
+  "listCharacters": "Listar Personagens",
+  "editCharacter": "Editar Personagem",
+  "createCharacter": "Criar Personagem"
 }

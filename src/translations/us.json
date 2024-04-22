@@ -77,5 +77,16 @@
   "lightMode": "Light Mode",
   "compact": "compact",
   "disableTransition": "Disable Transition",
-  "enableTransition": "Enable Transition"
+  "enableTransition": "Enable Transition",
+  "recentSheets": "Recent Sheets",
+  "character": "Character",
+  "newChar": "New Character",
+  "createdAt": "Created at",
+  "description": "Description",
+  "name": "Name",
+  "inputSearch": "Input search",
+  "characters": "Characters",
+  "listCharacters": "List Characters",
+  "editCharacter": "Edit Characters",
+  "createCharacter": "Create Character"
 }

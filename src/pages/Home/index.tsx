@@ -2,7 +2,7 @@ import ImagesPanel from "@/components/ui/ImagesPanel";
 import { Card, Col, Row } from "antd";
 
 import SelectAccountList from "./subComponents/selectAccountList";
-import SelectLanguage from "@/components/ui/SelectLanguage";
+import SelectLanguage from "@/components/ui/Select/Select.language";
 import MenuHeader from "@/components/ui/MenuHeader";
 import { useLanguage } from "@/providers/provider/LanguageProvider";
 

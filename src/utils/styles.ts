@@ -9,6 +9,6 @@ export class StyleUtils {
   }
 
   public static getAccentColor(color: Colors) {
-    return presetPrimaryColors[color]
+    return presetPrimaryColors[color];
   }
 }
