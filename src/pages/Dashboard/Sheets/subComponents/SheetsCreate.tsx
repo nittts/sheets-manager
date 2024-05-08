@@ -3,7 +3,7 @@ import NewSheetForm from "@/components/ui/Form/Form.newSheet";
 import { useLanguage } from "@/providers/provider/LanguageProvider";
 import { useCreateSheet } from "@/services/hooks/sheets";
 import { FeedbackUtils } from "@/utils/feedback";
-import { Modal } from "antd";
+import { Button, Drawer } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function SheetsCreate() {
@@ -21,9 +21,9 @@ function SheetsCreate() {
   };
 
   return (
-    <Modal open={!!hash} title="new character sheet ">
+    <Drawer open={!!hash} title="new character sheet">
       <NewSheetForm onFinish={onFinish} />
-    </Modal>
+    </Drawer>
   );
 }
 

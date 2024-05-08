@@ -1,6 +1,6 @@
 import { CreateSheetPayload, SheetTag } from "@/@types/sheets";
 import { useLanguage } from "@/providers/provider/LanguageProvider";
-import { Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { FaFileAlt } from "react-icons/fa";
 import { FaBook } from "react-icons/fa6";
 import TagCreator from "../Tag/creator";
@@ -16,11 +16,11 @@ function NewSheetForm({ onFinish }: newSheetFormProps) {
 
   const onChangeTags = (newTags: SheetTag[]) => {
     setTags(newTags);
-  }
+  };
 
   useEffect(() => {
-    form.setFieldValue('tags', tags)
-  }, [tags])
+    form.setFieldValue("tags", tags);
+  }, [tags]);
 
   return (
     <Form
@@ -30,11 +30,8 @@ function NewSheetForm({ onFinish }: newSheetFormProps) {
       onFinish={onFinish}
     >
       {renderFormItems()}
-
-      <TagCreator
-        tags={tags}
-        onChange={onChangeTags}
-      />
+      <TagCreator tags={tags} onChange={onChangeTags} />
+      <Button>Finish</Button>
     </Form>
   );
 }
